@@ -1,0 +1,13 @@
+service:
+  title: "Form service"
+  description: "Service for saving and loading forms"
+  host: "0.0.0.0"
+  port: 8000
+  debug: True
+  db_hostname: "localhost"
+  db_port: 27017
+  db_name: Forms
+  db_collection_name: TestForms
+  tags_metadata:
+    name: "Form service"
+    description: "Add or receive form"
