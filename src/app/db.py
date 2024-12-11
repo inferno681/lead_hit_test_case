@@ -39,8 +39,3 @@ mongo = MongoDB(
     config.service.db_name,
     config.service.db_collection_name,
 )
-
-
-def get_mongo():
-    """Функция получения класса для запросов в бд."""
-    return mongo
