@@ -25,6 +25,10 @@ jobs:
 
     - name: flake8
       run:  |
+          poetry run isort src/
+
+    - name: flake8
+      run:  |
         poetry run flake8 src/
 
     - name: mypy
