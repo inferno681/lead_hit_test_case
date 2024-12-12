@@ -1,7 +1,7 @@
 [![main](https://github.com/inferno681/lead_hit_test_case/actions/workflows/main.yaml/badge.svg?branch=main)](https://github.com/inferno681/lead_hit_test_case/actions/workflows/main.yaml)
-[![codecov](https://codecov.io/gh/inferno681/lead_hit_test_case/graph/badge.svg?token=P2J4753CRZ)](https://codecov.io/gh/inferno681/lead_hit_test_case)
+[![codecov](https://codecov.io/gh/inferno681/lead_hit_test_case/branch/main/graph/badge.svg?token=P2J4753CRZ)](https://codecov.io/gh/inferno681/lead_hit_test_case)
 
-#LeadHit Test Case
+# LeadHit Test Case
 
 Сервис управления формами.
 
@@ -67,7 +67,7 @@ docker compose -f .\docker-compose-prod.yaml up -d
 Документация будет доступна по адресу: http://127.0.0.1:8000/docs
 </details>
 
-<details><summary><h2>Запуск проекта через докер без загрузки образа.</h2></summary>
+<details><summary><h2>Запуск проекта через докер без загрузки образа</h2></summary>
 
 1. Клонируйте репозиторий, создайте виртуальное окружение и активируйте его.
 
@@ -84,7 +84,7 @@ docker compose up -d
 ```
 Документация будет доступна по адресу: http://127.0.0.1:8000/docs
 </details>
-<details><summary><h2>Запуск тестов.</h2></summary>
+<details><summary><h2>Запуск тестов</h2></summary>
 
 1. Клонируйте репозиторий, создайте виртуальное окружение и активируйте его.
 
@@ -109,7 +109,7 @@ MONGO_INITDB_ROOT_PASSWORD = secret_password
 pytest --cov --cov-report term-missing
 ```
 </details>
-<details><summary><h2>Использование скрипта для выполнения запросов.</h2></summary>
+<details><summary><h2>Использование скрипта для выполнения запросов</h2></summary>
 
 1. Клонируйте репозиторий, создайте виртуальное окружение и активируйте его.
 
@@ -126,7 +126,7 @@ python script.py
 
 </details>
 
-<details><summary><h2>Преимущества.</h2></summary>
+<details><summary><h2>Преимущества</h2></summary>
 
 - реализовано в соответствии с заданием https://docs.google.com/document/d/1fMFwPBs53xzcrltEFOpEG4GWTaQ-5jvVLrNT6_hmC7I/edit?tab=t.0#heading=h.pieurecv5l1j
 
