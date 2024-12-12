@@ -7,7 +7,7 @@ services:
       - db_value:/data/db
     environment:
       - MONGO_INITDB_ROOT_USERNAME = user
-      - MONGO_INITDB_ROOT_PASSWORD = password=value
+      - MONGO_INITDB_ROOT_PASSWORD = password
 
   form_service:
     container_name: form_service
@@ -15,8 +15,6 @@ services:
       context: .
       dockerfile: Dockerfile_test
     restart: always
-    env_file:
-      - .env
     ports:
       - 8000:8000
     depends_on:
