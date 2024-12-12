@@ -96,5 +96,5 @@ jobs:
         to: ${{ secrets.TELEGRAM_TO }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
         message: |
-          ${{ github.actor }} merge pull request with commit ${{ github.event.commits[0].message }}!
-          Link to commit - https://github.com/${{ github.repository }}/commit/${{github.sha}}
+          ${{ github.actor }} выполнил слияния в ветку "main" ${{ github.event.commits[0].message }}!
+          Ссылка на коммит - https://github.com/${{ github.repository }}/commit/${{github.sha}}
