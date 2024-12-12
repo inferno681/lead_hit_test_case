@@ -1,0 +1,26 @@
+services:
+
+  db:
+    image: mongo:latest
+    restart: always
+    volumes:
+      - db_value:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME = user
+      - MONGO_INITDB_ROOT_PASSWORD = password=value
+
+  form_service:
+    container_name: form_service
+    build:
+      context: .
+      dockerfile: Dockerfile_test
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+
+volumes:
+  db_value:

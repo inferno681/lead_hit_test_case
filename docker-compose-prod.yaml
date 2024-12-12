@@ -1,0 +1,23 @@
+services:
+
+  db:
+    image: mongo:latest
+    restart: always
+    volumes:
+      - db_value:/data/db
+    env_file:
+      - .env
+
+  form_service:
+    container_name: form_service
+    image: inferno681/lead_hit_testcase:latest
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+
+volumes:
+  db_value:

@@ -1,4 +1,26 @@
 import pytest
+import pytest_asyncio
+from motor.motor_asyncio import AsyncIOMotorClient
+
+from config.config import config
+
+TEST_COLLECTION = 'test_collection'
+config.service.db_collection_name = TEST_COLLECTION
+
+
+@pytest_asyncio.fixture(scope='session', autouse=True)
+async def crate_and_drop_collection(forms_data):
+    """Подготовка бд для тестов."""
+    client = AsyncIOMotorClient(config.database_url)
+    db = client[config.service.db_name]
+    await db.create_collection(TEST_COLLECTION)
+    collection = db[TEST_COLLECTION]
+    await collection.insert_many(forms_data)
+
+    yield
+
+    await db.drop_collection(TEST_COLLECTION)
+    client.close()
 
 
 @pytest.fixture()
