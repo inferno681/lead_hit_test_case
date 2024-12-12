@@ -49,6 +49,8 @@ jobs:
           submodules: true
     - name: Set up Docker Compose
       run: |
+        echo "MONGO_INITDB_ROOT_USERNAME = mongo_user" >> .env
+        echo "MONGO_INITDB_ROOT_PASSWORD = secret_password" >> .env
         docker compose -f docker-compose-test.yaml up -d --build
     - name: Run Pytest
       run: |
