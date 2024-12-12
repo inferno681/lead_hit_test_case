@@ -91,6 +91,7 @@ jobs:
     needs:
       - test
       - build_and_push_to_docker_hub
+      - deploy
     steps:
     - name: Send message
       uses: appleboy/telegram-action@master
@@ -99,4 +100,5 @@ jobs:
         token: ${{ secrets.TELEGRAM_TOKEN }}
         message: |
           ${{ github.actor }} выполнил слияния в ветку "main" ${{ github.event.commits[0].message }}!
+          Обновленный проект развернут на сервере!
           Ссылка на коммит - https://github.com/${{ github.repository }}/commit/${{github.sha}}
