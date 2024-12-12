@@ -23,6 +23,8 @@ jobs:
       - name: Run Pytest
         run: |
           sleep 3
+          echo "MONGO_INITDB_ROOT_USERNAME = mongo_user" >> .env
+          echo "MONGO_INITDB_ROOT_PASSWORD = secret_password" >> .env
           docker compose -f docker-compose-test.yaml exec form_service pytest --cov --cov-fail-under=90 --cov-report term-missing --cov-report xml:coverage.xml
           docker cp $(docker compose -f docker-compose-test.yaml ps -q form_service):/app/coverage.xml ./coverage.xml
       - name: Tear down Docker Compose
@@ -89,6 +91,7 @@ jobs:
     needs:
       - test
       - build_and_push_to_docker_hub
+      - deploy
     steps:
     - name: Send message
       uses: appleboy/telegram-action@master
@@ -97,4 +100,5 @@ jobs:
         token: ${{ secrets.TELEGRAM_TOKEN }}
         message: |
           ${{ github.actor }} выполнил слияния в ветку "main" ${{ github.event.commits[0].message }}!
+          Обновленный проект развернут на сервере!
           Ссылка на коммит - https://github.com/${{ github.repository }}/commit/${{github.sha}}
