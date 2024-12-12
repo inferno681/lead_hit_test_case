@@ -16,6 +16,7 @@ log = logging.getLogger('uvicorn')
 async def lifespan(app: FastAPI):
     """Запуск и остановка сервиса."""
     form_service = FormService(mongo)
+    await form_service.start()
     app.state.form_service = form_service
     log.info('Service started')
 

@@ -2,7 +2,7 @@ import pytest
 from fastapi import status
 
 
-@pytest.mark.asyncio
+@pytest.mark.anyio
 async def test_create_form_body(
     client,
     add_form_link,
@@ -18,7 +18,7 @@ async def test_create_form_body(
     assert test_response == response.json()
 
 
-@pytest.mark.asyncio
+@pytest.mark.anyio
 async def test_get_form_body(client, get_form_link, get_test_data):
     """Тест получения форм через тело запроса."""
     response = await client.post(
@@ -29,7 +29,7 @@ async def test_get_form_body(client, get_form_link, get_test_data):
     assert get_test_data['response'] == response.json()
 
 
-@pytest.mark.asyncio
+@pytest.mark.anyio
 async def test_get_form_list_body(
     client,
     get_form_list_link,
@@ -44,7 +44,7 @@ async def test_get_form_list_body(
     assert get_form_list_data['response'] == response.json()
 
 
-@pytest.mark.asyncio
+@pytest.mark.anyio
 async def test_create_form_query(
     client,
     add_form_link,
@@ -62,7 +62,7 @@ async def test_create_form_query(
     assert test_response == response.json()
 
 
-@pytest.mark.asyncio
+@pytest.mark.anyio
 async def test_get_form_query(client, get_form_link, get_test_data):
     """Тест получения форм через параметры запроса."""
     response = await client.post(
@@ -73,7 +73,7 @@ async def test_get_form_query(client, get_form_link, get_test_data):
     assert get_test_data['response'] == response.json()
 
 
-@pytest.mark.asyncio
+@pytest.mark.anyio
 async def test_get_form_list_query(
     client,
     get_form_list_link,
@@ -88,7 +88,7 @@ async def test_get_form_list_query(
     assert get_form_list_data['response'] == response.json()
 
 
-@pytest.mark.asyncio
+@pytest.mark.anyio
 @pytest.mark.parametrize(
     'links',
     [

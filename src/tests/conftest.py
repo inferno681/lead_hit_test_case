@@ -1,20 +1,12 @@
-import asyncio
-
 import pytest
-import pytest_asyncio
 from asgi_lifespan import LifespanManager
 from httpx import ASGITransport, AsyncClient
 
 
 @pytest.fixture(scope='session')
-def event_loop():
-    """Управление циклом событий для асинхронных тестов."""
-    try:
-        loop = asyncio.get_running_loop()
-    except RuntimeError:
-        loop = asyncio.new_event_loop()
-    yield loop
-    loop.close()
+def anyio_backend():
+    """Backend for test."""
+    return 'asyncio'
 
 
 @pytest.fixture(scope='session')
@@ -68,7 +60,7 @@ def forms_data():
     )
 
 
-@pytest_asyncio.fixture(scope='session')
+@pytest.fixture(scope='session')
 async def client():
     """Клиент для тестирования."""
     from app.main import app
