@@ -10,9 +10,7 @@ services:
 
   form_service:
     container_name: form_service
-    build:
-      context: .
-      dockerfile: Dockerfile_test
+    build: .
     restart: always
     env_file:
       - .env
