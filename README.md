@@ -26,7 +26,7 @@ poetry install
 MONGO_INITDB_ROOT_USERNAME = mongo_user
 MONGO_INITDB_ROOT_PASSWORD = secret_password
 ```
-5. Все настройки приложения находятся в файле src/config/config.yaml. В этом файле нужно указать хост и порт базы данных (MongoDB).
+5. Все настройки приложения находятся в файле src/config/config.yaml. Измените значение db_hostname на "localhost".
 
 6. Базу данных можно запустить в контейнере:
 ```bash
@@ -65,6 +65,7 @@ docker compose -f .\docker-compose-prod.yaml up -d
 </details>
 
 <details><summary><h2>Запуск проекта через докер без загрузки образа.</h2></summary>
+
 1. Клонируйте репозиторий, создайте виртуальное окружение и активируйте его.
 
 2. Создайте .env файл с данными для подключения к бд:
@@ -72,7 +73,7 @@ docker compose -f .\docker-compose-prod.yaml up -d
 MONGO_INITDB_ROOT_USERNAME = mongo_user
 MONGO_INITDB_ROOT_PASSWORD = secret_password
 ```
-3. Все настройки приложения находятся в файле src/config/config.yaml. Измените значение db_hostname на "db".
+3. Все настройки приложения находятся в файле src/config/config.yaml.
 
 4. Запустите приложение:
 ```bash
